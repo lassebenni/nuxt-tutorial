@@ -1,6 +1,5 @@
 <template>
-  <section class="contaner">
-  </section>
+  <section class="contaner"></section>
 </template>
 
 <script lang="ts">
