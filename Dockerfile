@@ -1,6 +1,6 @@
 FROM node:14
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 COPY . ./
 RUN yarn
@@ -12,4 +12,4 @@ ENV PORT=8080
 
 RUN yarn build
 
-CMD [ "yarn", "start" ]
+CMD [ "yarn", "dev" ]
