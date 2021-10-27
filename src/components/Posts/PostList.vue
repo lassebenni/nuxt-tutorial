@@ -2,6 +2,7 @@
   <section class="list-posts">
     <PostPreview
       id="1"
+      :is-admin="isAdmin"
       thumbnail="https://thumbs.dreamstime.com/z/new-skills-knowledge-webinar-training-business-internet-technology-concept-new-skills-knowledge-webinar-training-business-internet-121274023.jpg"
       title="New Skills Knowledge Webinar Training"
       previewText="New Skills"
@@ -14,6 +15,12 @@ import PostPreview from "@/components/Posts/PostPreview";
 export default {
   components: {
     PostPreview,
+  },
+  props: {
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>
