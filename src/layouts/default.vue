@@ -1,5 +1,7 @@
 <template>
   <div>
+    <TheHeader @sidenavToggle="isSideNavOpen = !isSideNavOpen" />
+    <TheSideNav :show="isSideNavOpen" @close="isSideNavOpen = false" />
     <nuxt />
   </div>
 </template>
@@ -14,7 +16,17 @@ body {
 </style>
 
 <script>
+import TheHeader from "@/components/Navigation/TheHeader";
+import TheSideNav from "@/components/Navigation/TheSideNav";
 export default {
-  components: {},
+  components: {
+    TheHeader,
+    TheSideNav,
+  },
+  data() {
+    return {
+      isSideNavOpen: false,
+    };
+  },
 };
 </script>
