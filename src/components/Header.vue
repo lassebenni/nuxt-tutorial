@@ -2,10 +2,7 @@
   <header class="header">
     <ul class="nav-items">
       <li>
-        <nuxt-link to="/users">Users</nuxt-link>
-      </li>
-      <li>
-        <nuxt-link to="/products">Products</nuxt-link>
+        <nuxt-link to="/posts">Posts</nuxt-link>
       </li>
     </ul>
   </header>
