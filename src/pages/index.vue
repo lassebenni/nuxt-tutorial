@@ -1,22 +1,15 @@
 <template>
   <div class="home-page">
     <section class="intro"><h1>Latest news</h1></section>
-    <section class="featured-posts">
-      <PostPreview
-        id="1"
-        thumbnail="https://thumbs.dreamstime.com/z/new-skills-knowledge-webinar-training-business-internet-technology-concept-new-skills-knowledge-webinar-training-business-internet-121274023.jpg"
-        title="New Skills Knowledge Webinar Training"
-        previewText="New Skills"
-      />
-    </section>
+    <PostList />
   </div>
 </template>
 
 <script>
-import PostPreview from "@/components/Posts/PostPreview";
+import PostList from "@/components/Posts/PostList";
 export default {
   components: {
-    PostPreview,
+    PostList,
   },
 };
 </script>
@@ -51,14 +44,5 @@ export default {
   .intro h1 {
     font-size: 2rem;
   }
-}
-
-.featured-posts {
-  display: flex;
-  padding: 20px;
-  box-sizing: border-box;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
 }
 </style>
