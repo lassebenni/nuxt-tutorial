@@ -2,38 +2,23 @@
   <div class="home-page">
     <section class="intro"><h1>Latest news</h1></section>
     <section class="featured-posts">
-      <nuxt-link :to="'/posts/' + 1" class="post-preview">
-        <article>
-          <div
-            class="post-thumbnail"
-            style="background-image: url('https://thumbs.dreamstime.com/z/new-skills-knowledge-webinar-training-business-internet-technology-concept-new-skills-knowledge-webinar-training-business-internet-121274023.jpg"
-          >
-            <div class="post-content">
-              <h1>Title</h1>
-              <p>Preview text</p>
-            </div>
-          </div>
-        </article>
-      </nuxt-link>
-      <nuxt-link :to="'/posts/' + 2" class="post-preview">
-        <article>
-          <div
-            class="post-thumbnail"
-            style="background-image: url('https://thumbs.dreamstime.com/z/new-skills-knowledge-webinar-training-business-internet-technology-concept-new-skills-knowledge-webinar-training-business-internet-121274023.jpg"
-          >
-            <div class="post-content">
-              <h1>Title</h1>
-              <p>Preview text</p>
-            </div>
-          </div>
-        </article>
-      </nuxt-link>
+      <PostPreview
+        id="1"
+        thumbnail="https://thumbs.dreamstime.com/z/new-skills-knowledge-webinar-training-business-internet-technology-concept-new-skills-knowledge-webinar-training-business-internet-121274023.jpg"
+        title="New Skills Knowledge Webinar Training"
+        previewText="New Skills"
+      />
     </section>
   </div>
 </template>
 
 <script>
-export default {};
+import PostPreview from "@/components/Posts/PostPreview";
+export default {
+  components: {
+    PostPreview,
+  },
+};
 </script>
 
 <style scoped>
@@ -74,41 +59,5 @@ export default {};
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-}
-
-.post-preview {
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 2px #ccc;
-  background-color: white;
-  width: 90%;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
-
-@media (min-width: 850px) {
-  .post-preview {
-    width: 400px;
-    margin: 10px;
-  }
-}
-
-.post-thumbnail {
-  width: 100%;
-  height: 200px;
-  background-position: center;
-  background-size: cover;
-}
-
-.post-content {
-  padding: 10px;
-  text-align: center;
-}
-
-a:hover .post-content,
-a:active .post-content {
-  background-color: #ccc;
 }
 </style>
