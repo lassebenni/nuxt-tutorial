@@ -11,19 +11,22 @@ export default {
   components: {
     PostList,
   },
-  data() {
-    return {
-      loadedPosts: [
-        {
-          id: 1,
-          author: "Me",
-          title: "Test",
-          content: "Hi",
-          thumbnail: "http://google.nl",
-          previewText: "No",
-        },
-      ],
-    };
+  asyncData(context, callback) {
+    setTimeout(() => {
+      callback(null, {
+        loadedPosts: [
+          {
+            id: 1,
+            title: "Post 1",
+            content:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.",
+            createdAt: new Date(),
+            previewText: "Lorem ipsum dolor sit amet",
+            thumbnail: "Lorem ipsum dolor sit amet",
+          },
+        ],
+      });
+    }, 1500);
   },
 };
 </script>
