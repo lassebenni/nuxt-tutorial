@@ -1,7 +1,7 @@
 <template>
   <div class="home-page">
     <section class="intro"><h1>Latest news</h1></section>
-    <PostList />
+    <PostList :posts="loadedPosts" />
   </div>
 </template>
 
@@ -10,6 +10,20 @@ import PostList from "@/components/Posts/PostList";
 export default {
   components: {
     PostList,
+  },
+  data() {
+    return {
+      loadedPosts: [
+        {
+          id: 1,
+          author: "Me",
+          title: "Test",
+          content: "Hi",
+          thumbnail: "http://google.nl",
+          previewText: "No",
+        },
+      ],
+    };
   },
 };
 </script>
