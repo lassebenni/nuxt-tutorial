@@ -17,8 +17,9 @@ export default {
   components: {
     PostList,
   },
-  data() {
-    return {
+  asyncData(context, callback) {
+    console.log(context);
+    callback(null, {
       loadedPosts: [
         {
           id: 1,
@@ -29,7 +30,7 @@ export default {
           previewText: "No",
         },
       ],
-    };
+    });
   },
 };
 </script>

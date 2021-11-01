@@ -1,6 +1,6 @@
 <template>
   <div class="single-post-page">
-    <Post :post="post" />
+    <Post :post="loadedPost" />
     <section class="post-feedback">
       <h2>Comments</h2>
       <div class="comment"></div>
@@ -19,18 +19,23 @@ function MyPost(id, title, content) {
 }
 
 export default {
+  asyncData(context, callback) {
+    setTimeout(() => {
+      callback(null, {
+        loadedPost: {
+          id: 1,
+          title: "First Post (ID: " + context.params.id + ")",
+          content: "This is my first post",
+          previewText: "Some preview text",
+          author: "Max",
+          updatedDate: new Date(),
+          thumbnail: "https//nu.nl",
+        },
+      });
+    }, 1000);
+  },
   components: {
     Post,
-  },
-  data() {
-    return {
-      post: {
-        id: 1,
-        title: "Lassse",
-        content: "What's up",
-        author: "Lasse",
-      },
-    };
   },
 };
 </script>
