@@ -19,20 +19,27 @@ function MyPost(id, title, content) {
 }
 
 export default {
-  asyncData(context, callback) {
-    setTimeout(() => {
-      callback(null, {
-        loadedPost: {
-          id: 1,
-          title: "First Post (ID: " + context.params.id + ")",
-          content: "This is my first post",
-          previewText: "Some preview text",
-          author: "Max",
-          updatedDate: new Date(),
-          thumbnail: "https//nu.nl",
-        },
+  async asyncData(context) {
+    try {
+      const data = await new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve({
+            loadedPost: {
+              id: 1,
+              title: "First Post (ID: " + context.params.id + ")",
+              content: "This is my first post",
+              previewText: "Some preview text",
+              author: "Max",
+              updatedDate: new Date(),
+              thumbnail: "https//nu.nl",
+            },
+          });
+        }, 1000);
       });
-    }, 1000);
+      return data;
+    } catch (e) {
+      context.error(e);
+    }
   },
   components: {
     Post,
