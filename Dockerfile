@@ -2,7 +2,19 @@ FROM node:14
 
 WORKDIR /app
 
-COPY . ./
+# Global settings for Nuxt
+COPY nuxt.config.js .
+COPY package.json .
+COPY tsconfig.json .
+COPY yarn.lock .
+
+# workaround for omitting ".vue" suffix for comopnents
+COPY shim.ts ts-shim.d.ts
+
+COPY node_modules node_modules
+
+COPY src src
+
 RUN yarn
 
 EXPOSE 8080

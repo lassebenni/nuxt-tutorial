@@ -4,18 +4,27 @@
 
 ## Develop
 
-1. Start dev environment with `docker-compose up`.
+- Start dev environment with `docker-compose up`.
+
+
+---
 
 ## Notes
 
 - Added `ts-shim.d.ts` file to be able to [import components correctly](https://github.com/nuxt/typescript/issues/153).
 - Created a `src` subdir and put project files in there to be able to bind them to a separate Docker volume for hot reloading.
 
+---
+
 ## Questions
 
 - How does the binding work e.g. in `AppControlInput`?
 
+---
+
 ## Concepts
+
+
 
 ### Asyncdata
 
@@ -108,4 +117,9 @@ const createStore = () => {
         perform_some_server_logic()
         ...
 ```
+
+
+### Axios
+
+Javascript AJAX requests can be send using the `axios` library.
 
