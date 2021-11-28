@@ -29,8 +29,19 @@ export default {
           thumbnail: "http://google.nl",
           previewText: "No",
         },
+        {
+          id: 1,
+          author: "Me",
+          title: "Hi again",
+          content: "Hi 2.0",
+          thumbnail: "http://google.nl",
+          previewText: "No",
+        },
       ],
     });
+  },
+  created() {
+    this.$store.dispatch("setPosts", this.loadedPosts);
   },
 };
 </script>
