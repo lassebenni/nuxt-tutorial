@@ -123,3 +123,31 @@ const createStore = () => {
 
 Javascript AJAX requests can be send using the `axios` library.
 
+- Perform HTTP Post using `axios`:
+
+``` javascript
+...
+import axios from 'axios'
+...
+  methods: {
+    onSubmit(postData) {
+        axios .post(
+            "some_url_endpont/",
+            postData
+            )
+            .then(() => {
+            this.$router.push("/admin/");
+            })
+            .catch((err) => {
+            console.log(err);
+            });
+        },
+...
+```
+
+- Perform a GET request:
+
+``` javascript
+
+
+```

@@ -1,13 +1,14 @@
 <template>
   <div class="admin-new-post-page">
     <section class="new-post-form">
-      <AdminPostForm :post="templatePost" />
+      <AdminPostForm :post="templatePost" @submit="onSubmit" />
     </section>
   </div>
 </template>
 
 <script>
 import AdminPostForm from "@/components/Admin/AdminPostForm";
+import axios from "axios";
 export default {
   components: {
     AdminPostForm,
@@ -18,9 +19,25 @@ export default {
         author: "Lasse",
         title: "This post though",
         content: "So good",
-        thumbnailLink: "",
+        thumbnail: "",
+        previewText: "",
       },
     };
+  },
+  methods: {
+    onSubmit(postData) {
+      axios
+        .post(
+          "https://nuxt-guide-default-rtdb.europe-west1.firebasedatabase.app/posts.json",
+          { ...postData, updated: new Date() }
+        )
+        .then(() => {
+          this.$router.push("/admin/");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
   },
 };
 </script>

@@ -11,35 +11,24 @@
 
 <script>
 import Post from "@/components/Posts/Post";
-
-function MyPost(id, title, content) {
-  this.id = id;
-  this.title = title;
-  this.content = content;
-}
+import axios from "axios";
 
 export default {
   async asyncData(context) {
-    try {
-      const data = await new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve({
-            loadedPost: {
-              id: 1,
-              title: "First Post (ID: " + context.params.id + ")",
-              content: "This is my first post",
-              previewText: "Some preview text",
-              author: "Max",
-              updatedDate: new Date(),
-              thumbnail: "https//nu.nl",
-            },
-          });
-        }, 1000);
+    return axios
+      .get(
+        "https://nuxt-guide-default-rtdb.europe-west1.firebasedatabase.app/posts/" +
+          context.params.id +
+          ".json"
+      )
+      .then((response) => {
+        return {
+          loadedPost: response.data,
+        };
+      })
+      .catch((e) => {
+        context.error(e);
       });
-      return data;
-    } catch (e) {
-      context.error(e);
-    }
   },
   components: {
     Post,
