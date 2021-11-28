@@ -17,31 +17,12 @@ export default {
   components: {
     PostList,
   },
-  asyncData(context, callback) {
-    console.log(context);
-    callback(null, {
-      loadedPosts: [
-        {
-          id: 1,
-          author: "Me",
-          title: "Test",
-          content: "Hi",
-          thumbnail: "http://google.nl",
-          previewText: "No",
-        },
-        {
-          id: 1,
-          author: "Me",
-          title: "Hi again",
-          content: "Hi 2.0",
-          thumbnail: "http://google.nl",
-          previewText: "No",
-        },
-      ],
-    });
+  fetch(context) {
   },
-  created() {
-    this.$store.dispatch("setPosts", this.loadedPosts);
+  computed: {
+    loadedPosts() {
+      return this.$store.getters.loadedPosts;
+    },
   },
 };
 </script>

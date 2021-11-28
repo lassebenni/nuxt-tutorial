@@ -11,22 +11,10 @@ export default {
   components: {
     PostList,
   },
-  asyncData(context, callback) {
-    setTimeout(() => {
-      callback(null, {
-        loadedPosts: [
-          {
-            id: 1,
-            title: "Post 1",
-            content:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.",
-            createdAt: new Date(),
-            previewText: "Lorem ipsum dolor sit amet",
-            thumbnail: "Lorem ipsum dolor sit amet",
-          },
-        ],
-      });
-    }, 1500);
+  computed: {
+    loadedPosts() {
+      return this.$store.getters.loadedPosts;
+    },
   },
 };
 </script>
