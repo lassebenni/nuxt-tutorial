@@ -6,7 +6,6 @@
 
 - Start dev environment with `docker-compose up`.
 
-
 ---
 
 ## Notes
@@ -23,8 +22,6 @@
 ---
 
 ## Concepts
-
-
 
 ### Asyncdata
 
@@ -47,7 +44,7 @@ const data = await new Promise((resolve, reject) => {
       });
 ```
 
-### Vuex - Key-value store (28-11-21)
+### Vuex - Key-value store
 
 - Data can be stored in the frontend using the `Vuex` key-value store/cache.
 
@@ -118,6 +115,57 @@ const createStore = () => {
         ...
 ```
 
+Getters
+
+- The state in the store is retrieved with general purpose `getter` [methods](https://vuex.vuejs.org/guide/getters.html):
+
+``` javascript
+...
+ getters: {
+      loadedPosts: state => {
+        return state.loadedPosts;
+      }
+    }
+ ...
+```
+
+Mutations
+
+- Mutations modify the state in the Vuex store. They take the state as an argument and can apply any necessary changes. They are called with the `this.$store.commit('name_of_mutation', arg)` syntax. 
+
+``` javascript
+...
+mutations: {
+    setPosts(state, posts) {
+    state.loadedPosts = posts;
+    },
+...
+# then later call the mutation
+...
+this.$sore.commit("setPosts', posts);
+...
+```
+
+Actions
+
+- Similar to mutations, actions are used to change the state, but do not directly modify it. They call upon mutations themselves, and are `async` in nature. Call them with `this.$store.dispatch('action_name', arg)`.
+
+``` javascript
+...
+    actions: {
+      setPosts(vuexContext, posts) {
+        vuexContext.commit("setPosts", posts);
+      },
+    }
+...
+
+# call them async
+...
+this.$store.dispatch('setPosts', posts).then(() => {
+    this.$router.push('some/route')
+}
+...
+```
 
 ### Axios
 
@@ -148,6 +196,7 @@ import axios from 'axios'
 - Perform a GET request:
 
 ``` javascript
-
-
+    axios.get('some-url.com')
+    .then((res) => {console.log(res)})
+    .catch((err) => {console.log(err)})
 ```
