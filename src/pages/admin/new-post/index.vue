@@ -19,24 +19,17 @@ export default {
         author: "Lasse",
         title: "This post though",
         content: "So good",
-        thumbnail: "",
-        previewText: "",
+        thumbnail: "Somethumbnail",
+        previewText: "Yah",
       },
     };
   },
   methods: {
     onSubmit(postData) {
-      axios
-        .post(
-          "https://nuxt-guide-default-rtdb.europe-west1.firebasedatabase.app/posts.json",
-          { ...postData, updated: new Date() }
-        )
-        .then(() => {
-          this.$router.push("/admin/");
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      this.$store.dispatch("addPost", postData).then(() => {
+        console.log("moving on");
+        this.$router.push("/admin");
+      });
     },
   },
 };

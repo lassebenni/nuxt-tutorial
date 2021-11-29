@@ -18,8 +18,9 @@
       style="margin-left: 10px"
       btn-style="cancel"
       @click="onCancel"
-      >Cancel</AppButton
     >
+      Cancel
+    </AppButton>
   </form>
 </template>
 
@@ -34,6 +35,10 @@ export default {
   props: {
     post: {
       type: Object,
+      required: false,
+    },
+    isEdit: {
+      type: Boolean,
       required: false,
     },
   },
@@ -53,8 +58,6 @@ export default {
   methods: {
     onSave() {
       this.$emit("submit", this.editedPost);
-
-      this.$router.push("/admin/");
     },
     onCancel() {
       this.$router.push("/admin/");
@@ -63,5 +66,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

@@ -21,18 +21,10 @@ export default {
     PostList,
     AppButton,
   },
-  data() {
-    return {
-      loadedPost: [
-        {
-          id: 1,
-          title: "test",
-          content: "",
-          previewText: "",
-          thumbnail: "",
-        },
-      ],
-    };
+  computed: {
+    loadedPosts() {
+      return this.$store.state.loadedPosts;
+    },
   },
 };
 </script>
