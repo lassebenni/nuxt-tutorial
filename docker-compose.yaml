@@ -7,7 +7,7 @@ services:
     environment:
       - NUXT_PORT=8080
     volumes:
-      - ./src:/app/src
+      - .:/app/
     networks:
       - nuxt-network
 networks:
