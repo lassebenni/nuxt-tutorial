@@ -41,8 +41,11 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ["@nuxtjs/axios"],
 
+  axios: {
+    baseURL: "https://nuxt-guide-default-rtdb.europe-west1.firebasedatabase.app"
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     extractCSS: true,

@@ -22,7 +22,7 @@ const createStore = () => {
     },
     actions: {
       nuxtServerInit(vuexContext, context) {
-        return axios
+        return this.$axios
           .get(process.env.baseUrl + "/posts.json")
           .then(res => {
             const postArray = [];
