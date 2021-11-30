@@ -17,11 +17,7 @@ export default {
   },
   asyncData(context) {
     return axios
-      .get(
-        "https://nuxt-guide-default-rtdb.europe-west1.firebasedatabase.app/posts/" +
-          context.params.postId +
-          ".json"
-      )
+      .get(process.env.baseUrl + "/posts/" + context.params.postId + ".json")
       .then((res) => {
         return {
           post: { ...res.data, id: context.params.postId },
@@ -34,12 +30,7 @@ export default {
   methods: {
     updatePost(post) {
       return axios
-        .put(
-          "https://nuxt-guide-default-rtdb.europe-west1.firebasedatabase.app/posts/" +
-            post.id +
-            ".json",
-          post
-        )
+        .put(process.env.baseUrl + "/posts/" + post.id + ".json", post)
         .then((res) => {
           this.$store.commit("updatePost", post);
           this.$router.push("/admin/");

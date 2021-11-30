@@ -200,3 +200,26 @@ import axios from 'axios'
     .then((res) => {console.log(res)})
     .catch((err) => {console.log(err)})
 ```
+
+### Nuxt.config.js
+
+The nuxt config can be used to set certain behaviour across the application.
+
+ENV
+
+- Use the `env` keyword to set environment variables:
+
+``` javascript
+
+// for instance to set an applicaiton wide URL
+...
+export default {
+  env: {
+    baseUrl:
+      process.env.BASE_URL ||
+      "https://nuxt-guide-default-rtdb.europe-west1.firebasedatabase.app/"
+  }
+}
+...
+```
+
