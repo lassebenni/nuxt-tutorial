@@ -12,13 +12,8 @@
 </style>
 
 <script>
-import PostList from "@/components/Posts/PostList";
 export default {
-  components: {
-    PostList,
-  },
-  fetch(context) {
-  },
+  fetch(context) {},
   computed: {
     loadedPosts() {
       return this.$store.getters.loadedPosts;
