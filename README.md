@@ -131,7 +131,7 @@ Getters
 
 Mutations
 
-- Mutations modify the state in the Vuex store. They take the state as an argument and can apply any necessary changes. They are called with the `this.$store.commit('name_of_mutation', arg)` syntax. 
+- Mutations modify the state in the Vuex store. They take the state as an argument and can apply any necessary changes. They are called with the `this.$store.commit('name_of_mutation', arg)` syntax.
 
 ``` javascript
 ...
@@ -223,3 +223,24 @@ export default {
 ...
 ```
 
+#### Plugins
+
+- Plugins "run before your app does" and make it possible to extend your application with custom javascript code.
+
+``` javascript
+// nuxt.config.js
+
+  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
+  plugins: ["~/plugins/core-components.js", "~/plugins/date-filter.js"],
+
+```
+
+#### Modules
+
+- Modules are npm/yarn packages that extend your application. They can be third-party libraries downloaded from the internet.
+
+``` javascript
+  // Modules: https://go.nuxtjs.dev/config-modules
+  modules: ["@nuxtjs/axios"],
+
+```
