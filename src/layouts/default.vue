@@ -19,6 +19,7 @@ body {
 import TheHeader from "@/components/Navigation/TheHeader";
 import TheSideNav from "@/components/Navigation/TheSideNav";
 export default {
+  middleware: "log",
   components: {
     TheHeader,
     TheSideNav,
