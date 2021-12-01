@@ -13,7 +13,6 @@
 
 <script>
 export default {
-  fetch(context) {},
   computed: {
     loadedPosts() {
       return this.$store.getters.loadedPosts;

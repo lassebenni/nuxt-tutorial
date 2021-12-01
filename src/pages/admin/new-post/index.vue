@@ -19,7 +19,7 @@ export default {
         author: "Lasse",
         title: "This post though",
         content: "So good",
-        thumbnail: "Somethumbnail",
+        thumbnail: "~/assets/images/bg.jpg",
         previewText: "Yah",
       },
     };
